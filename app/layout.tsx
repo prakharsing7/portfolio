@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Montserrat, DM_Sans, JetBrains_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/react'
 import { ConsoleBrand } from '@/components/console-brand'
 import { CommandPalette } from '@/components/command-palette'
@@ -7,21 +7,15 @@ import Nav from '@/components/nav'
 import Footer from '@/components/footer'
 import '@/styles/globals.css'
 
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  variable: '--font-montserrat',
+const geist = localFont({
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist',
   display: 'swap',
 })
 
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  variable: '--font-dm-sans',
-  display: 'swap',
-})
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
+const geistMono = localFont({
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
   display: 'swap',
 })
 
@@ -49,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
+      className={`${geist.variable} ${geistMono.variable}`}
     >
       <body className="bg-bg text-text-primary">
         <ConsoleBrand />

@@ -12,13 +12,14 @@ export default function Nav() {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 w-full">
+    <nav className="fixed top-0 left-0 right-0 z-40 w-full bg-bg">
       <div className="max-w-layout mx-auto px-6 py-5 flex items-center justify-between">
         <Link
           href="/"
-          className="font-mono text-small text-text-primary hover:opacity-70 transition-opacity"
+          className="font-mono text-small text-text-primary hover:text-accent transition-colors relative group"
         >
           PS
+          <div className="absolute inset-0 bg-accent blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 -z-10" />
         </Link>
         <div className="flex gap-8">
           {links.map((link) => (
