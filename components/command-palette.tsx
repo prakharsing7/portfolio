@@ -28,7 +28,7 @@ export function CommandPalette() {
     { id: 'about',      group: 'Navigate', label: 'About',         action: () => { router.push('/about');         close() } },
     { id: 'uses',       group: 'Navigate', label: 'Uses (hidden)', action: () => { router.push('/uses');          close() } },
     { id: 'github',   group: 'Connect',  label: 'GitHub',        action: () => { window.open('https://github.com/prakharsing7', '_blank'); close() } },
-    { id: 'linkedin', group: 'Connect',  label: 'LinkedIn',      action: () => { window.open('https://linkedin.com/in/prakharsingh7', '_blank'); close() } },
+    { id: 'linkedin', group: 'Connect',  label: 'LinkedIn',      action: () => { window.open('https://linkedin.com/in/prakharsingh10', '_blank'); close() } },
     { id: 'email',    group: 'Connect',  label: 'Email',         action: () => { window.location.href = 'mailto:prakharsing7@gmail.com'; close() } },
     { id: 'empact',   group: 'Projects', label: 'emPACT',        action: () => { router.push('/work/empact');   close() } },
     { id: 'forecast', group: 'Projects', label: 'FORECAST',      action: () => { router.push('/work/forecast'); close() } },

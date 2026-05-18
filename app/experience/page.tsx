@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Experience() {
   return (
     <div className="px-6 pt-32 pb-20 max-w-layout mx-auto">
-      <h1 className="font-display text-display text-text-primary mb-16">Experience</h1>
+      <p className="font-mono text-small text-text-tertiary tracking-widest uppercase mb-12">Experience</p>
 
       <div>
         {EXPERIENCE.map((role) => (
