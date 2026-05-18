@@ -110,6 +110,9 @@ export function CommandPalette() {
         >
           <div className="absolute inset-0 bg-bg/80" onClick={close} />
           <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Command palette"
             className="relative w-full max-w-[560px] bg-surface border border-border overflow-hidden"
             variants={commandPaletteVariants}
             initial="hidden"
@@ -124,10 +127,11 @@ export function CommandPalette() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Type a command or search..."
+                aria-label="Search commands"
                 className="flex-1 py-4 bg-transparent font-mono text-small text-text-primary placeholder:text-text-tertiary outline-none caret-accent"
               />
             </div>
-            <div className="max-h-[360px] overflow-y-auto py-2">
+            <div role="listbox" aria-label="Commands" className="max-h-[360px] overflow-y-auto py-2">
               {Object.entries(grouped).map(([group, cmds]) => (
                 <div key={group}>
                   <div className="px-4 pt-4 pb-1 font-mono text-small text-text-tertiary tracking-widest uppercase">
@@ -138,6 +142,8 @@ export function CommandPalette() {
                     return (
                       <button
                         key={cmd.id}
+                        role="option"
+                        aria-selected={activeIndex === idx}
                         onClick={cmd.action}
                         onMouseEnter={() => setActiveIndex(idx)}
                         className={`w-full text-left px-4 py-2.5 font-mono text-small transition-colors border-l-2 ${

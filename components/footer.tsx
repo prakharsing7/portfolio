@@ -10,7 +10,7 @@ export default function Footer() {
         </span>
         <button
           onClick={() => window.dispatchEvent(new CustomEvent('open-command-palette'))}
-          className="text-text-tertiary hover:text-accent transition-colors duration-200"
+          className="text-text-tertiary hover:text-accent transition-colors duration-200 p-2 -m-2"
           aria-label="Open command palette (Cmd+K)"
         >
           <Keyboard size={14} />
