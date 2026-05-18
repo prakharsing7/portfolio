@@ -12,7 +12,7 @@ export function ConsoleBrand() {
     console.log('%c Building software for the energy transition.', dim)
     console.log(' ')
     console.log('%c prakharsing7@gmail.com', link)
-    console.log('%c /work  /blog  /uses  /api/now', dim)
+    console.log('%c /experience  /work  /blog  /uses  /api/now', dim)
     console.log(' ')
     console.log('%c Integrating the hardware that powers the transition —', dim)
     console.log('%c one OCPP charger at a time.', dim)

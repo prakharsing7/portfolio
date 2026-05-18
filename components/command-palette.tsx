@@ -21,11 +21,12 @@ export function CommandPalette() {
   const close = useCallback(() => setOpen(false), [])
 
   const commands: Command[] = [
-    { id: 'home',     group: 'Navigate', label: 'Home',          action: () => { router.push('/');              close() } },
-    { id: 'work',     group: 'Navigate', label: 'Work',          action: () => { router.push('/work');          close() } },
-    { id: 'blog',     group: 'Navigate', label: 'Blog',          action: () => { router.push('/blog');          close() } },
-    { id: 'about',    group: 'Navigate', label: 'About',         action: () => { router.push('/about');         close() } },
-    { id: 'uses',     group: 'Navigate', label: 'Uses (hidden)', action: () => { router.push('/uses');          close() } },
+    { id: 'home',       group: 'Navigate', label: 'Home',          action: () => { router.push('/');              close() } },
+    { id: 'experience', group: 'Navigate', label: 'Experience',    action: () => { router.push('/experience');    close() } },
+    { id: 'work',       group: 'Navigate', label: 'Work',          action: () => { router.push('/work');          close() } },
+    { id: 'blog',       group: 'Navigate', label: 'Blog',          action: () => { router.push('/blog');          close() } },
+    { id: 'about',      group: 'Navigate', label: 'About',         action: () => { router.push('/about');         close() } },
+    { id: 'uses',       group: 'Navigate', label: 'Uses (hidden)', action: () => { router.push('/uses');          close() } },
     { id: 'github',   group: 'Connect',  label: 'GitHub',        action: () => { window.open('https://github.com/prakharsing7', '_blank'); close() } },
     { id: 'linkedin', group: 'Connect',  label: 'LinkedIn',      action: () => { window.open('https://linkedin.com/in/prakharsingh7', '_blank'); close() } },
     { id: 'email',    group: 'Connect',  label: 'Email',         action: () => { window.location.href = 'mailto:prakharsing7@gmail.com'; close() } },
