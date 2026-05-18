@@ -1,16 +1,42 @@
 import { allBlogs, allWorks } from 'contentlayer2/generated'
 import Link from 'next/link'
 import { ProjectCard } from '@/components/project-card'
-import { CountUp } from '@/components/count-up'
 
 const FEATURED_SLUGS   = ['empact', 'forecast', 'circles']
 const FEATURED_NUMBERS = ['01', '02', '03']
 
-const metrics = [
-  { value: 30, suffix: '+', decimals: 0, label: 'Chargers\nintegrated', accent: true  },
-  { value: 3,  suffix: '',  decimals: 0, label: 'Platforms\ndeployed',  accent: false },
-  { value: 2,  suffix: '',  decimals: 0, label: 'Languages\nPHP / TS',  accent: false },
-  { value: 5,  suffix: '+', decimals: 0, label: 'Years\nbuilding',      accent: false },
+type ExperienceRole = { title: string; company: string; period: string; description?: string; tags?: string[] }
+
+const EXPERIENCE: ExperienceRole[] = [
+  {
+    title: "AI & Backend Engineer",
+    company: "Electric Miles",
+    period: "2026–present",
+    description:
+      "Led the internal rollout of Claude (Anthropic) across Electric Miles’ operations, automating high-friction workflows in the PHP/Symfony backend. First production AI integration at an EV infrastructure company.",
+    tags: ["PHP", "Symfony", "Claude API", "TypeScript", "OCPI"],
+  },
+  {
+    title: "Platform Onboarding Engineer",
+    company: "Electric Miles",
+    period: "2024–2026",
+    description:
+      "Integrated 30+ EV chargers into a live OCPP network. Owned full end-to-end test coverage of emPACT, Electric Miles’ flagship B2B platform for CPOs and fleet operators.",
+    tags: ["OCPP", "PHP", "Symfony", "PostgreSQL", "E2E Testing"],
+  },
+  {
+    title: "Intern",
+    company: "Electric Miles",
+    period: "2022–2024",
+  },
+  {
+    title: "iOS Developer Intern",
+    company: "Infosys",
+    period: "2022",
+    description:
+      "Built and shipped iOS features using Swift and UIKit. Gained production experience with Apple’s design guidelines, Core Data, and REST API integration.",
+    tags: ["Swift", "UIKit", "iOS", "REST"],
+  },
 ]
 
 export default function Home() {
@@ -25,7 +51,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-screen flex flex-col justify-center px-6 pt-24 pb-20 max-w-layout mx-auto">
+      <section className="relative flex flex-col justify-center px-6 pt-20 pb-20 max-w-layout mx-auto min-h-[90vh]">
         <div className="max-w-content">
           <p className="font-mono text-small text-text-secondary uppercase tracking-widest mb-1">
             Platform Onboarding &amp; AI Engineer
@@ -34,10 +60,8 @@ export default function Home() {
             Electric Miles · London
           </p>
           <h1 className="font-display text-display text-text-primary">PRAKHAR SINGH</h1>
-          <p className="font-display text-h1 text-text-primary mt-8">
-            I build the software layer between<br />
-            clean energy hardware and the<br />
-            people who depend on it.
+          <p className="font-display text-h1 text-text-primary mt-8 max-w-prose">
+            I build the software layer between clean energy hardware and the people who depend on it.
           </p>
           <p className="mt-6 text-body text-text-secondary max-w-prose">
             30+ EV chargers integrated. OCPP &amp; OCPI protocol specialist. Currently
@@ -54,9 +78,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Experience */}
+      <section className="px-6 py-20 max-w-layout mx-auto border-t-2 border-accent">
+        <p className="font-mono text-small text-accent tracking-widest uppercase mb-10 font-semibold">Experience</p>
+        {EXPERIENCE.map((role) => (
+          <div key={`${role.company}-${role.title}`} className="border-b border-border py-8 last:border-b-0">
+            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-2">
+              <div className="flex items-baseline gap-3">
+                <h3 className="font-display text-h3 text-text-primary">{role.title}</h3>
+                <span className="font-mono text-small text-accent">{role.company}</span>
+              </div>
+              <span className="font-mono text-small text-text-tertiary shrink-0">{role.period}</span>
+            </div>
+            {role.description && (
+              <p className="text-body text-text-secondary max-w-prose">{role.description}</p>
+            )}
+            {role.tags && role.tags.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {role.tags?.map((tag) => (
+                  <span key={tag} className="font-mono text-small text-text-tertiary border border-border px-2 py-0.5">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </section>
+
       {/* Featured Work */}
-      <section className="px-6 py-20 max-w-layout mx-auto">
-        <p className="font-mono text-small text-text-tertiary tracking-widest uppercase mb-10">Selected Work</p>
+      <section className="px-6 py-20 max-w-layout mx-auto border-t-2 border-accent">
+        <p className="font-mono text-small text-accent tracking-widest uppercase mb-10 font-semibold">Selected Work</p>
         {featured.map((work, i) =>
           work ? (
             <ProjectCard
@@ -73,58 +125,49 @@ export default function Home() {
       </section>
 
       {/* About Strip */}
-      <section className="px-6 py-20 max-w-layout mx-auto border-t border-border">
-        <p className="text-body text-text-secondary max-w-prose mb-12">
-          I started as an ML researcher — cyclone prediction from satellite imagery,
-          real-time object detection, topic modelling. Then built products: an iOS trip
-          planning app, a hospital management system, an open-source 3D slicer fork.
-          Today I work at Electric Miles, where I integrated 30+ EV chargers into a live
-          OCPP network and led the internal Claude AI rollout.
+      <section className="px-6 py-20 max-w-layout mx-auto border-t-2 border-accent">
+        <p className="text-body text-text-secondary max-w-prose mb-6">
+          I started in ML research: cyclone intensity prediction from INSAT-3D satellite imagery,
+          real-time object detection, topic modelling on news corpora. Then products: an iOS trip
+          planning app in SwiftUI, a hospital management system, an open-source 3D slicer fork.
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
-          {metrics.map((m) => (
-            <div key={m.label}>
-              <CountUp
-                end={m.value}
-                suffix={m.suffix}
-                decimals={m.decimals}
-                className={`font-display text-h1 ${m.accent ? 'text-accent' : 'text-text-primary'}`}
-              />
-              <p className="font-mono text-small text-text-secondary mt-1 whitespace-pre-line">{m.label}</p>
-            </div>
-          ))}
-        </div>
-        <Link href="/about" className="font-mono text-small text-text-secondary hover:text-text-primary transition-colors">
+        <p className="text-body text-text-secondary max-w-prose mb-10">
+          Today I work at Electric Miles, where I integrated{' '}
+          <span className="text-text-primary">30+ EV chargers across 15+ manufacturers</span>{' '}
+          into a live OCPP network, then led the internal rollout of Claude across operations.
+          The first production AI integration at an EV infrastructure company.
+        </p>
+        <Link href="/about" className="font-mono text-small text-text-secondary hover:text-accent transition-colors duration-200">
           Full story →
         </Link>
       </section>
 
       {/* Latest Writing */}
       {latestPosts.length > 0 && (
-        <section className="px-6 py-20 max-w-layout mx-auto border-t border-border">
-          <p className="font-mono text-small text-text-tertiary tracking-widest uppercase mb-8">Latest Writing</p>
+        <section className="px-6 py-20 max-w-layout mx-auto border-t-2 border-accent">
+          <p className="font-mono text-small text-accent tracking-widest uppercase mb-8 font-semibold">Latest Writing</p>
           <div className="space-y-6">
             {latestPosts.map((post) => (
               <div key={post.slug} className="flex items-baseline gap-6">
                 <span className="font-mono text-small text-text-tertiary shrink-0 w-20">
                   {new Date(post.date).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}
                 </span>
-                <Link href={post.url} className="font-display text-h3 text-text-primary hover:text-accent transition-colors">
+                <Link href={post.url} className="font-display text-h3 text-text-primary hover:text-accent transition-colors duration-200">
                   {post.title}
                 </Link>
               </div>
             ))}
           </div>
-          <Link href="/blog" className="font-mono text-small text-text-secondary hover:text-text-primary transition-colors mt-8 block">
+          <Link href="/blog" className="font-mono text-small text-text-secondary hover:text-accent transition-colors duration-200 mt-8 block">
             All writing →
           </Link>
         </section>
       )}
 
       {/* Contact */}
-      <section className="px-6 py-32 max-w-layout mx-auto border-t border-border">
+      <section className="px-6 py-32 max-w-layout mx-auto border-t-2 border-accent">
         <h2 className="font-display text-h1 text-text-primary mb-6">Let&rsquo;s talk.</h2>
-        <a href="mailto:prakharsing7@gmail.com" className="font-mono text-h2 text-text-secondary hover:text-accent transition-colors block mb-8">
+        <a href="mailto:prakharsing7@gmail.com" className="font-mono text-h2 text-text-secondary hover:text-accent transition-colors duration-200 block mb-8">
           prakharsing7@gmail.com
         </a>
         <div className="flex gap-6">

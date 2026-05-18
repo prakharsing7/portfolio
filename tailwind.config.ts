@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['var(--font-montserrat)', 'sans-serif'],
-        body: ['var(--font-dm-sans)', 'sans-serif'],
-        mono: ['var(--font-jetbrains-mono)', 'monospace'],
+        display: ['var(--font-geist)', 'sans-serif'],
+        body: ['var(--font-geist)', 'sans-serif'],
+        mono: ['var(--font-geist-mono)', 'monospace'],
       },
       fontSize: {
         display: ['clamp(40px, 6vw, 72px)', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
@@ -23,15 +23,15 @@ const config: Config = {
         mono: ['13px', { lineHeight: '1.6' }],
       },
       colors: {
-        bg: '#080808',
-        surface: '#101010',
-        border: '#1C1C1C',
+        bg: '#0F1419',
+        surface: '#151A22',
+        border: '#242D38',
         'text-primary': '#F0F0F0',
-        'text-secondary': '#707070',
-        'text-tertiary': '#3A3A3A',
+        'text-secondary': '#8B95A1',
+        'text-tertiary': '#3D4A56',
         accent: '#00E5A0',
         'accent-dim': 'rgba(0,229,160,0.08)',
-        'code-bg': '#0D0D0D',
+        'code-bg': '#0A0E13',
       },
       maxWidth: {
         content: '720px',
