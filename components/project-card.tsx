@@ -21,7 +21,7 @@ export function ProjectCard({ number, title, description, year, stack, href }: P
           <div className="flex-1">
             <h2 className="font-display text-h2 text-text-primary relative inline-block group-hover:text-accent transition-colors duration-200">
               {title}
-              <span className="absolute -bottom-0.5 left-0 h-px bg-accent w-0 group-hover:w-full transition-all duration-200 ease-linear" />
+              <span className="absolute -bottom-0.5 left-0 h-px bg-accent w-0 group-hover:w-full transition-[width] duration-200 ease-linear" />
             </h2>
             <p className="mt-3 text-body text-text-secondary max-w-prose">{description}</p>
             <div className="mt-4 flex items-center gap-3 flex-wrap">

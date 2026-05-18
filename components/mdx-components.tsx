@@ -37,7 +37,7 @@ export const mdxComponents: MDXComponents = {
   li: ({ children }) => <li className="text-body text-text-secondary">{children}</li>,
   hr: () => <hr className="border-border my-10" />,
   blockquote: ({ children }) => (
-    <blockquote className="border-l-2 border-accent pl-5 italic text-text-secondary my-6">
+    <blockquote className="bg-surface px-5 py-3 italic text-text-secondary my-6">
       {children}
     </blockquote>
   ),

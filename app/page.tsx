@@ -53,7 +53,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative flex flex-col justify-center px-6 pt-20 pb-20 max-w-layout mx-auto min-h-[90vh]">
         <div className="max-w-content">
-          <p className="font-mono text-small text-text-secondary uppercase tracking-widest mb-1">
+          <p className="font-mono text-small text-text-secondary mb-1">
             Platform Onboarding &amp; AI Engineer
           </p>
           <p className="font-mono text-small text-text-tertiary mb-10">
