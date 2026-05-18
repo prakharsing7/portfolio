@@ -1,0 +1,33 @@
+---
+title: "What I learned integrating 30+ EV chargers into a live OCPP network"
+date: 2026-01-15
+excerpt: "The real friction isn't the protocol — it's the manufacturers. Every charger has custom fields, non-standard status codes, and undocumented edge cases."
+---
+
+The assumption you start with: OCPP is an open standard. Therefore, integrating a new charger should be a matter of following the spec.
+
+The reality: every manufacturer treats the standard differently. Some treat it as a strict contract. Others use it as a rough suggestion.
+
+## What diverges
+
+Here's what you actually encounter in the field:
+
+**Custom status codes.** OCPP defines a fixed set of status values: `Available`, `Preparing`, `Charging`, `SuspendedEVSE`, `SuspendedEV`, `Finishing`, `Reserved`, `Unavailable`, `Faulted`. Manufacturers add their own. Some chargers send `Occupied` — a status that isn't in the spec at all.
+
+**Non-standard field values.** The `Reason` field in `StopTransaction` has a defined enum. Chargers send free-text strings. Your parser breaks.
+
+**Timing edge cases.** The spec defines heartbeat intervals. Some chargers don't send heartbeats at the negotiated interval. Others send them multiple times per second. Your connection manager needs to handle both.
+
+**Silent reconnections.** A charger that drops the WebSocket and silently reconnects mid-session creates a ghost session in your system. Your state machine needs to detect stale sessions and clean them up.
+
+## What good integration tooling looks like
+
+Each manufacturer needs a thin adapter layer — a normaliser that maps their specific behaviour onto your internal state model. The OCPP message comes in raw; your adapter canonicalises it before anything downstream sees it.
+
+For testing: you can't rely on a real charger being available. You need a simulator that can replay the specific message sequences each manufacturer produces, including the edge cases. That's what lets you catch the status-code divergence before it hits production.
+
+## What this taught me about standards
+
+A standard defines a contract between implementations. But contracts only work when both parties have interpreted the clauses the same way. In practice, OCPP leaves enough ambiguity — and enough optional fields — that every manufacturer's implementation reflects their own engineering culture.
+
+The standard is the start of the conversation, not the end of it. The integration work is figuring out what each charger actually does.

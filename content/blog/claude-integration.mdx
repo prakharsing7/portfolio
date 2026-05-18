@@ -1,0 +1,39 @@
+---
+title: "Using Claude to automate operational grunt work at an EV infrastructure company"
+date: 2026-02-20
+excerpt: "What it took to actually integrate an LLM into a production PHP/Symfony backend, and what workflows it unlocked."
+---
+
+The pitch for LLM integration in enterprise software is usually vague: "AI will streamline your workflows." What that means in practice — in a real codebase, with real constraints — is rarely discussed.
+
+Here's what it actually looked like at Electric Miles.
+
+## The context
+
+Electric Miles runs emPACT, a B2B platform for EV charge point operators and fleet managers. The operations team handles a steady stream of tasks that are high-friction but low-complexity: drafting reports, categorising charger fault logs, routing support queries, generating summaries from raw telemetry.
+
+These tasks took time. They required context — knowing the charger, the operator, the fault history. But they didn't require judgment in the way that designing a load balancing algorithm requires judgment.
+
+That's the sweet spot for an LLM.
+
+## The integration architecture
+
+The backend is PHP with Symfony. Claude's API is HTTP. The integration is straightforward at the transport level — a service class that wraps the Anthropic API, handles retries, and returns structured output.
+
+The harder part is prompt design.
+
+A prompt that works once isn't a production system. You need prompts that work across the distribution of inputs your system will see. That means testing on real data, identifying the failure modes, and iterating. For fault log categorisation, the first version worked on clean logs and failed on the ambiguous ones — which are, of course, the only ones that matter.
+
+## What it unlocked
+
+The workflows that shipped:
+
+- **Fault summarisation.** Raw OCPP fault codes, translated into plain-English summaries for operators who aren't protocol experts.
+- **Report drafting.** Weekly utilisation reports generated from telemetry, with narrative context the raw numbers don't provide.
+- **Query routing.** Incoming support queries classified and routed before a human reads them.
+
+None of these are glamorous. All of them saved real time.
+
+## The lesson
+
+Don't automate the wrong thing. The temptation is to start with the most visible process — the one that looks expensive. But visibility isn't the same as automability. Start with the tasks that are repetitive, well-defined, and have clear success criteria. Those are the ones where an LLM integration ships and stays shipped.

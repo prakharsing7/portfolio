@@ -1,0 +1,31 @@
+---
+title: emPACT
+subtitle: End-to-end testing and Claude AI integration for Electric Miles' flagship B2B EV management platform
+year: "2024–present"
+role: Platform Engineer → AI & Backend Engineer
+stack: [PHP, Symfony, TypeScript, Claude API, OCPP, OCPI, PostgreSQL]
+company: Electric Miles
+featured: true
+---
+
+emPACT is Electric Miles' B2B platform for CPOs (Charge Point Operators) and fleet operators. It provides unified charger management, dynamic load balancing, automated payments, and smart analytics — enabling operators to run EV charging infrastructure at scale.
+
+## My Role
+
+I owned two distinct phases of this product: first as the engineer responsible for full end-to-end test coverage of the entire platform, then as the lead for AI integration and ongoing backend feature development.
+
+## The Testing Challenge
+
+Full E2E coverage of an EV charging platform is not straightforward. OCPP is a stateful protocol — chargers move between states (Available, Preparing, Charging, Finishing, Faulted) and the sequences that trigger transitions are manufacturer-specific. Writing reliable test coverage means modelling these state machines for each charger type and simulating every edge case in the payment and load balancing flows.
+
+## The AI Integration
+
+I led the integration of Claude (Anthropic) into Electric Miles' internal operations. The goal was to automate high-friction internal workflows — reducing operational grunt work for the team and accelerating decision-making. The integration runs on the PHP/Symfony backend and connects to Claude's API for context-aware task automation.
+
+## Outcome
+
+Full test coverage achieved across the emPACT platform. Claude integration shipped to production and actively used internally. The platform is used by CPOs and fleet operators managing charging infrastructure across the UK.
+
+## Reflection
+
+The hardest part wasn't the AI integration — it was defining the right workflows to automate. An LLM in a production system is only as useful as the specificity of the task you hand it. Vague prompts produce vague results. Scoped, well-structured prompts produce automation that actually replaces manual work.

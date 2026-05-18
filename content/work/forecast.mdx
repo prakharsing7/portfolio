@@ -1,0 +1,26 @@
+---
+title: FORECAST
+subtitle: Cyclone intensity estimation and path prediction using INSAT-3D infrared satellite imagery
+year: "2023"
+role: ML Engineer (Research)
+stack: [Python, TensorFlow, Keras, NumPy, pandas, GDAL, matplotlib]
+featured: true
+---
+
+FORECAST was a research project aimed at improving cyclone intensity estimation and path prediction for Indian Ocean cyclones, using infrared geoTIFF imagery from the INSAT-3D satellite.
+
+## The Problem
+
+Traditional intensity estimation methods had significant lag and resolution limitations. The hypothesis: deep learning applied to raw infrared imagery could yield faster, more granular predictions — closer to real-time than IMD's conventional methods.
+
+## Data Pipeline
+
+I scraped infrared geo-referenced TIFF files from INSAT archives, covering cyclones that made landfall or passed through the Bay of Bengal and Arabian Sea. Each image required georeferencing, normalisation, and alignment before it could be used as model input. GDAL handled the coordinate system transforms.
+
+## Approach
+
+A convolutional model was trained to estimate intensity (wind speed categories) and predict the displacement vector of the cyclone's centre between frames. The model was evaluated against historical IMD (India Meteorological Department) intensity records.
+
+## Why It Matters
+
+This project shaped how I think about physical systems as data problems — a lens I've carried into energy infrastructure work. Cyclone paths and EV charging loads are both high-stakes prediction problems where getting the model wrong has real physical consequences.
