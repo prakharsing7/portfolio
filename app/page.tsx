@@ -41,7 +41,7 @@ export default function Home() {
         </div>
         <div className="absolute bottom-12 right-6 flex gap-5">
           <a href="https://github.com/prakharsing7" target="_blank" rel="noopener noreferrer" className="font-mono text-small text-text-tertiary hover:text-text-primary transition-colors">GitHub</a>
-          <a href="https://linkedin.com/in/prakharsingh7" target="_blank" rel="noopener noreferrer" className="font-mono text-small text-text-tertiary hover:text-text-primary transition-colors">LinkedIn</a>
+          <a href="https://linkedin.com/in/prakharsingh10" target="_blank" rel="noopener noreferrer" className="font-mono text-small text-text-tertiary hover:text-text-primary transition-colors">LinkedIn</a>
         </div>
       </section>
 
@@ -139,7 +139,7 @@ export default function Home() {
         </a>
         <div className="flex gap-6">
           <a href="https://github.com/prakharsing7" target="_blank" rel="noopener noreferrer" className="font-mono text-small text-text-secondary hover:text-text-primary transition-colors">GitHub</a>
-          <a href="https://linkedin.com/in/prakharsingh7" target="_blank" rel="noopener noreferrer" className="font-mono text-small text-text-secondary hover:text-text-primary transition-colors">LinkedIn</a>
+          <a href="https://linkedin.com/in/prakharsingh10" target="_blank" rel="noopener noreferrer" className="font-mono text-small text-text-secondary hover:text-text-primary transition-colors">LinkedIn</a>
         </div>
       </section>
     </>
