@@ -1,101 +1,137 @@
-import Image from "next/image";
+import { allBlogs, allWorks } from 'contentlayer2/generated'
+import Link from 'next/link'
+import { ProjectCard } from '@/components/project-card'
+import { CountUp } from '@/components/count-up'
+
+const FEATURED_SLUGS   = ['empact', 'forecast', 'circles']
+const FEATURED_NUMBERS = ['01', '02', '03']
+
+const metrics = [
+  { value: 30, suffix: '+', decimals: 0, label: 'Chargers\nintegrated', accent: true  },
+  { value: 3,  suffix: '',  decimals: 0, label: 'Platforms\ndeployed',  accent: false },
+  { value: 2,  suffix: '',  decimals: 0, label: 'Languages\nPHP / TS',  accent: false },
+  { value: 5,  suffix: '+', decimals: 0, label: 'Years\nbuilding',      accent: false },
+]
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const featured = FEATURED_SLUGS
+    .map((slug) => allWorks.find((w) => w.slug === slug))
+    .filter(Boolean)
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const latestPosts = [...allBlogs]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 2)
+
+  return (
+    <>
+      {/* Hero */}
+      <section className="relative min-h-screen flex flex-col justify-center px-6 pt-24 pb-20 max-w-layout mx-auto">
+        <div className="max-w-content">
+          <p className="font-mono text-small text-text-secondary uppercase tracking-widest mb-1">
+            Platform Onboarding &amp; AI Engineer
+          </p>
+          <p className="font-mono text-small text-text-tertiary mb-10">
+            Electric Miles · London
+          </p>
+          <h1 className="font-display text-display text-text-primary">PRAKHAR SINGH</h1>
+          <p className="font-display text-h1 text-text-primary mt-8">
+            I build the software layer between<br />
+            clean energy hardware and the<br />
+            people who depend on it.
+          </p>
+          <p className="mt-6 text-body text-text-secondary max-w-prose">
+            30+ EV chargers integrated. OCPP &amp; OCPI protocol specialist. Currently
+            leading AI infrastructure at the intersection of energy and software.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
+        <div className="absolute bottom-12 left-6 flex flex-col items-center gap-2">
+          <div className="w-px h-10 bg-border" />
+          <span className="font-mono text-small text-text-tertiary">scroll</span>
+        </div>
+        <div className="absolute bottom-12 right-6 flex gap-5">
+          <a href="https://github.com/prakharsing7" target="_blank" rel="noopener noreferrer" className="font-mono text-small text-text-tertiary hover:text-text-primary transition-colors">GitHub</a>
+          <a href="https://linkedin.com/in/prakharsingh7" target="_blank" rel="noopener noreferrer" className="font-mono text-small text-text-tertiary hover:text-text-primary transition-colors">LinkedIn</a>
+        </div>
+      </section>
+
+      {/* Featured Work */}
+      <section className="px-6 py-20 max-w-layout mx-auto">
+        <p className="font-mono text-small text-text-tertiary tracking-widest uppercase mb-10">Selected Work</p>
+        {featured.map((work, i) =>
+          work ? (
+            <ProjectCard
+              key={work.slug}
+              number={FEATURED_NUMBERS[i]}
+              title={work.title}
+              description={work.subtitle}
+              year={work.year}
+              stack={work.stack}
+              href={work.url}
+            />
+          ) : null,
+        )}
+      </section>
+
+      {/* About Strip */}
+      <section className="px-6 py-20 max-w-layout mx-auto border-t border-border">
+        <p className="text-body text-text-secondary max-w-prose mb-12">
+          I started as an ML researcher — cyclone prediction from satellite imagery,
+          real-time object detection, topic modelling. Then built products: an iOS trip
+          planning app, a hospital management system, an open-source 3D slicer fork.
+          Today I work at Electric Miles, where I integrated 30+ EV chargers into a live
+          OCPP network and led the internal Claude AI rollout.
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+          {metrics.map((m) => (
+            <div key={m.label}>
+              <CountUp
+                end={m.value}
+                suffix={m.suffix}
+                decimals={m.decimals}
+                className={`font-display text-h1 ${m.accent ? 'text-accent' : 'text-text-primary'}`}
+              />
+              <p className="font-mono text-small text-text-secondary mt-1 whitespace-pre-line">{m.label}</p>
+            </div>
+          ))}
+        </div>
+        <Link href="/about" className="font-mono text-small text-text-secondary hover:text-text-primary transition-colors">
+          Full story →
+        </Link>
+      </section>
+
+      {/* Latest Writing */}
+      {latestPosts.length > 0 && (
+        <section className="px-6 py-20 max-w-layout mx-auto border-t border-border">
+          <p className="font-mono text-small text-text-tertiary tracking-widest uppercase mb-8">Latest Writing</p>
+          <div className="space-y-6">
+            {latestPosts.map((post) => (
+              <div key={post.slug} className="flex items-baseline gap-6">
+                <span className="font-mono text-small text-text-tertiary shrink-0 w-20">
+                  {new Date(post.date).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}
+                </span>
+                <Link href={post.url} className="font-display text-h3 text-text-primary hover:text-accent transition-colors">
+                  {post.title}
+                </Link>
+              </div>
+            ))}
+          </div>
+          <Link href="/blog" className="font-mono text-small text-text-secondary hover:text-text-primary transition-colors mt-8 block">
+            All writing →
+          </Link>
+        </section>
+      )}
+
+      {/* Contact */}
+      <section className="px-6 py-32 max-w-layout mx-auto border-t border-border">
+        <h2 className="font-display text-h1 text-text-primary mb-6">Let&rsquo;s talk.</h2>
+        <a href="mailto:prakharsing7@gmail.com" className="font-mono text-h2 text-text-secondary hover:text-accent transition-colors block mb-8">
+          prakharsing7@gmail.com
         </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+        <div className="flex gap-6">
+          <a href="https://github.com/prakharsing7" target="_blank" rel="noopener noreferrer" className="font-mono text-small text-text-secondary hover:text-text-primary transition-colors">GitHub</a>
+          <a href="https://linkedin.com/in/prakharsingh7" target="_blank" rel="noopener noreferrer" className="font-mono text-small text-text-secondary hover:text-text-primary transition-colors">LinkedIn</a>
+        </div>
+      </section>
+    </>
+  )
 }
