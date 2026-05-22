@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import { Analytics } from '@vercel/analytics/react'
+import { Analytics } from '@vercel/analytics/next'
 import { ConsoleBrand } from '@/components/console-brand'
 import { CommandPalette } from '@/components/command-palette'
 import Nav from '@/components/nav'
