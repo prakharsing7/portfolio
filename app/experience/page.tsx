@@ -9,7 +9,9 @@ export const metadata: Metadata = {
 export default function Experience() {
   return (
     <div className="px-6 pt-32 pb-20 max-w-layout mx-auto">
-      <p className="font-mono text-small text-text-tertiary tracking-widest uppercase mb-12">Experience</p>
+      <p className="font-mono text-small text-text-tertiary tracking-widest uppercase mb-12">
+        Experience
+      </p>
 
       <div>
         {EXPERIENCE.map((role) => (
@@ -22,7 +24,9 @@ export default function Experience() {
                 <h2 className="font-display text-h2 text-text-primary">{role.title}</h2>
                 <span className="font-mono text-small text-accent">{role.company}</span>
               </div>
-              <span className="font-mono text-small text-text-tertiary shrink-0">{role.period}</span>
+              <span className="font-mono text-small text-text-tertiary shrink-0">
+                {role.period}
+              </span>
             </div>
             {role.description && (
               <p className="text-body text-text-secondary max-w-prose">{role.description}</p>

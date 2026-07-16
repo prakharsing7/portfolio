@@ -7,12 +7,12 @@ const Work = defineDocumentType(() => ({
   filePathPattern: 'work/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    title:    { type: 'string',  required: true },
-    subtitle: { type: 'string',  required: true },
-    year:     { type: 'string',  required: true },
-    role:     { type: 'string',  required: true },
-    stack:    { type: 'list', of: { type: 'string' }, required: true },
-    company:  { type: 'string' },
+    title: { type: 'string', required: true },
+    subtitle: { type: 'string', required: true },
+    year: { type: 'string', required: true },
+    role: { type: 'string', required: true },
+    stack: { type: 'list', of: { type: 'string' }, required: true },
+    company: { type: 'string' },
     featured: { type: 'boolean', default: false },
   },
   computedFields: {
@@ -32,8 +32,8 @@ const Blog = defineDocumentType(() => ({
   filePathPattern: 'blog/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    title:   { type: 'string', required: true },
-    date:    { type: 'date',   required: true },
+    title: { type: 'string', required: true },
+    date: { type: 'date', required: true },
     excerpt: { type: 'string', required: true },
   },
   computedFields: {

@@ -14,10 +14,7 @@ export function ProjectCard({ number, title, description, year, stack, href }: P
     <div className="border-b border-border py-10 group transition-[colors,transform] duration-300 hover:-translate-y-1">
       <Link href={href} className="block">
         <div className="flex items-start gap-6">
-          <span className="font-mono text-small text-accent w-8 shrink-0 mt-1 relative">
-            {number}
-            <div className="absolute inset-0 bg-accent blur-lg opacity-20 -z-10 group-hover:opacity-40 transition-opacity duration-300" />
-          </span>
+          <span className="font-mono text-small text-accent w-8 shrink-0 mt-1">{number}</span>
           <div className="flex-1">
             <h2 className="font-display text-h2 text-text-primary relative inline-block group-hover:text-accent transition-colors duration-200">
               {title}
@@ -29,7 +26,7 @@ export function ProjectCard({ number, title, description, year, stack, href }: P
               {stack.map((tag) => (
                 <span
                   key={tag}
-                  className="font-mono text-small text-text-secondary border border-border px-2 py-0.5 group-hover:border-accent/50 transition-colors duration-200"
+                  className="font-mono text-small text-text-secondary border border-border px-2 py-0.5"
                 >
                   {tag}
                 </span>

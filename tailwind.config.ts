@@ -1,15 +1,11 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  content: [
-    './app/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './content/**/*.{md,mdx}',
-  ],
+  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './content/**/*.{md,mdx}'],
   theme: {
     extend: {
       fontFamily: {
-        display: ['var(--font-geist)', 'sans-serif'],
+        display: ['var(--font-display)', 'var(--font-geist)', 'sans-serif'],
         body: ['var(--font-geist)', 'sans-serif'],
         mono: ['var(--font-geist-mono)', 'monospace'],
       },
