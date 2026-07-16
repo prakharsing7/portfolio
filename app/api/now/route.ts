@@ -12,11 +12,7 @@ export async function GET(request: Request) {
     currentFocus: 'Leading internal AI rollout using Claude at Electric Miles',
     contact: 'prakharsing7@gmail.com',
     updated: new Date().toISOString().split('T')[0],
-    haiku: [
-      'Electrons flow clean —',
-      'thirty chargers now online,',
-      'the grid learns to breathe.',
-    ],
+    haiku: ['Electrons flow clean —', 'thirty chargers now online,', 'the grid learns to breathe.'],
   }
 
   if (acceptsText) {

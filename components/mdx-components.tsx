@@ -16,7 +16,10 @@ export const mdxComponents: MDXComponents = {
     <p className="text-body text-text-secondary leading-relaxed mb-5 max-w-prose">{children}</p>
   ),
   a: ({ href, children }) => (
-    <a href={href} className="text-accent hover:opacity-80 transition-opacity underline underline-offset-2">
+    <a
+      href={href}
+      className="text-accent hover:opacity-80 transition-opacity underline underline-offset-2"
+    >
       {children}
     </a>
   ),
@@ -29,10 +32,14 @@ export const mdxComponents: MDXComponents = {
     </pre>
   ),
   ul: ({ children }) => (
-    <ul className="list-disc list-inside text-body text-text-secondary mb-5 space-y-1">{children}</ul>
+    <ul className="list-disc list-inside text-body text-text-secondary mb-5 space-y-1">
+      {children}
+    </ul>
   ),
   ol: ({ children }) => (
-    <ol className="list-decimal list-inside text-body text-text-secondary mb-5 space-y-1">{children}</ol>
+    <ol className="list-decimal list-inside text-body text-text-secondary mb-5 space-y-1">
+      {children}
+    </ol>
   ),
   li: ({ children }) => <li className="text-body text-text-secondary">{children}</li>,
   hr: () => <hr className="border-border my-10" />,

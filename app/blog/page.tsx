@@ -4,7 +4,8 @@ import { allBlogs } from 'contentlayer2/generated'
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description: 'Writing on EV infrastructure, OCPP integration, AI engineering, and building software for the energy transition.',
+  description:
+    'Writing on EV infrastructure, OCPP integration, AI engineering, and building software for the energy transition.',
 }
 
 export default function Blog() {
@@ -14,7 +15,9 @@ export default function Blog() {
 
   return (
     <div className="px-6 pt-32 pb-20 max-w-layout mx-auto">
-      <p className="font-mono text-small text-text-tertiary tracking-widest uppercase mb-12">Writing</p>
+      <p className="font-mono text-small text-text-tertiary tracking-widest uppercase mb-12">
+        Writing
+      </p>
       {posts.length === 0 ? (
         <p className="font-mono text-small text-text-tertiary">No posts yet.</p>
       ) : (
@@ -22,7 +25,10 @@ export default function Blog() {
           <Link key={post.slug} href={post.url} className="group block py-8 border-b border-border">
             <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
               <span className="font-mono text-small text-text-tertiary shrink-0 sm:w-24">
-                {new Date(post.date).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}
+                {new Date(post.date).toLocaleDateString('en-GB', {
+                  month: 'short',
+                  year: 'numeric',
+                })}
               </span>
               <div>
                 <h2 className="font-display text-h3 text-text-primary group-hover:text-accent transition-colors">

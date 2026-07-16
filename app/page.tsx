@@ -3,13 +3,13 @@ import Link from 'next/link'
 import { ProjectCard } from '@/components/project-card'
 import { EXPERIENCE } from '@/lib/experience'
 
-const FEATURED_SLUGS   = ['empact', 'forecast', 'circles']
+const FEATURED_SLUGS = ['empact', 'forecast', 'circles']
 const FEATURED_NUMBERS = ['01', '02', '03']
 
 export default function Home() {
-  const featured = FEATURED_SLUGS
-    .map((slug) => allWorks.find((w) => w.slug === slug))
-    .filter(Boolean)
+  const featured = FEATURED_SLUGS.map((slug) => allWorks.find((w) => w.slug === slug)).filter(
+    Boolean,
+  )
 
   const latestPosts = [...allBlogs]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
@@ -23,16 +23,15 @@ export default function Home() {
           <p className="font-mono text-small text-text-secondary mb-1">
             Platform Onboarding &amp; AI Engineer
           </p>
-          <p className="font-mono text-small text-text-tertiary mb-10">
-            Electric Miles · London
-          </p>
+          <p className="font-mono text-small text-text-tertiary mb-10">Electric Miles · London</p>
           <h1 className="font-display text-display text-text-primary">PRAKHAR SINGH</h1>
           <p className="font-display text-h1 text-text-primary mt-8 max-w-prose">
-            I build the software layer between clean energy hardware and the people who depend on it.
+            I build the software layer between clean energy hardware and the people who depend on
+            it.
           </p>
           <p className="mt-6 text-body text-text-secondary max-w-prose">
-            30+ EV chargers integrated. OCPP &amp; OCPI protocol specialist. Currently
-            leading AI infrastructure at the intersection of energy and software.
+            30+ EV chargers integrated. OCPP &amp; OCPI protocol specialist. Currently leading AI
+            infrastructure at the intersection of energy and software.
           </p>
         </div>
         <div className="absolute bottom-12 left-6 flex flex-col items-center gap-2">
@@ -40,22 +39,43 @@ export default function Home() {
           <span className="font-mono text-small text-text-tertiary">scroll</span>
         </div>
         <div className="absolute bottom-12 right-6 flex gap-5">
-          <a href="https://github.com/prakharsing7" target="_blank" rel="noopener noreferrer" className="font-mono text-small text-text-tertiary hover:text-text-primary transition-colors">GitHub</a>
-          <a href="https://linkedin.com/in/prakharsingh10" target="_blank" rel="noopener noreferrer" className="font-mono text-small text-text-tertiary hover:text-text-primary transition-colors">LinkedIn</a>
+          <a
+            href="https://github.com/prakharsing7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-small text-text-tertiary hover:text-text-primary transition-colors"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://linkedin.com/in/prakharsingh10"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-small text-text-tertiary hover:text-text-primary transition-colors"
+          >
+            LinkedIn
+          </a>
         </div>
       </section>
 
       {/* Experience */}
       <section className="px-6 py-20 max-w-layout mx-auto border-t-2 border-accent">
-        <p className="font-mono text-small text-accent tracking-widest uppercase mb-10 font-semibold">Experience</p>
+        <p className="font-mono text-small text-accent tracking-widest uppercase mb-10 font-semibold">
+          Experience
+        </p>
         {EXPERIENCE.map((role) => (
-          <div key={`${role.company}-${role.title}`} className="border-b border-border py-8 last:border-b-0">
+          <div
+            key={`${role.company}-${role.title}`}
+            className="border-b border-border py-8 last:border-b-0"
+          >
             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-2">
               <div className="flex items-baseline gap-3">
                 <h3 className="font-display text-h3 text-text-primary">{role.title}</h3>
                 <span className="font-mono text-small text-accent">{role.company}</span>
               </div>
-              <span className="font-mono text-small text-text-tertiary shrink-0">{role.period}</span>
+              <span className="font-mono text-small text-text-tertiary shrink-0">
+                {role.period}
+              </span>
             </div>
             {role.description && (
               <p className="text-body text-text-secondary max-w-prose">{role.description}</p>
@@ -63,7 +83,10 @@ export default function Home() {
             {role.tags && role.tags.length > 0 && (
               <div className="mt-3 flex flex-wrap gap-2">
                 {role.tags?.map((tag) => (
-                  <span key={tag} className="font-mono text-small text-text-tertiary border border-border px-2 py-0.5">
+                  <span
+                    key={tag}
+                    className="font-mono text-small text-text-tertiary border border-border px-2 py-0.5"
+                  >
                     {tag}
                   </span>
                 ))}
@@ -75,7 +98,9 @@ export default function Home() {
 
       {/* Featured Work */}
       <section className="px-6 py-20 max-w-layout mx-auto border-t-2 border-accent">
-        <p className="font-mono text-small text-accent tracking-widest uppercase mb-10 font-semibold">Selected Work</p>
+        <p className="font-mono text-small text-accent tracking-widest uppercase mb-10 font-semibold">
+          Selected Work
+        </p>
         {featured.map((work, i) =>
           work ? (
             <ProjectCard
@@ -100,11 +125,14 @@ export default function Home() {
         </p>
         <p className="text-body text-text-secondary max-w-prose mb-10">
           Today I work at Electric Miles, where I integrated{' '}
-          <span className="text-text-primary">30+ EV chargers across 15+ manufacturers</span>{' '}
-          into a live OCPP network, then led the internal rollout of Claude across operations.
-          The first production AI integration at an EV infrastructure company.
+          <span className="text-text-primary">30+ EV chargers across 15+ manufacturers</span> into a
+          live OCPP network, then led the internal rollout of Claude across operations. The first
+          production AI integration at an EV infrastructure company.
         </p>
-        <Link href="/about" className="font-mono text-small text-text-secondary hover:text-accent transition-colors duration-200">
+        <Link
+          href="/about"
+          className="font-mono text-small text-text-secondary hover:text-accent transition-colors duration-200"
+        >
           Full story →
         </Link>
       </section>
@@ -112,20 +140,31 @@ export default function Home() {
       {/* Latest Writing */}
       {latestPosts.length > 0 && (
         <section className="px-6 py-20 max-w-layout mx-auto border-t-2 border-accent">
-          <p className="font-mono text-small text-accent tracking-widest uppercase mb-8 font-semibold">Latest Writing</p>
+          <p className="font-mono text-small text-accent tracking-widest uppercase mb-8 font-semibold">
+            Latest Writing
+          </p>
           <div className="space-y-6">
             {latestPosts.map((post) => (
               <div key={post.slug} className="flex items-baseline gap-6">
                 <span className="font-mono text-small text-text-tertiary shrink-0 w-20">
-                  {new Date(post.date).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}
+                  {new Date(post.date).toLocaleDateString('en-GB', {
+                    month: 'short',
+                    year: 'numeric',
+                  })}
                 </span>
-                <Link href={post.url} className="font-display text-h3 text-text-primary hover:text-accent transition-colors duration-200">
+                <Link
+                  href={post.url}
+                  className="font-display text-h3 text-text-primary hover:text-accent transition-colors duration-200"
+                >
                   {post.title}
                 </Link>
               </div>
             ))}
           </div>
-          <Link href="/blog" className="font-mono text-small text-text-secondary hover:text-accent transition-colors duration-200 mt-8 block">
+          <Link
+            href="/blog"
+            className="font-mono text-small text-text-secondary hover:text-accent transition-colors duration-200 mt-8 block"
+          >
             All writing →
           </Link>
         </section>
@@ -134,12 +173,29 @@ export default function Home() {
       {/* Contact */}
       <section className="px-6 py-32 max-w-layout mx-auto border-t-2 border-accent">
         <h2 className="font-display text-h1 text-text-primary mb-6">Let&rsquo;s talk.</h2>
-        <a href="mailto:prakharsing7@gmail.com" className="font-mono text-h2 text-text-secondary hover:text-accent transition-colors duration-200 block mb-8">
+        <a
+          href="mailto:prakharsing7@gmail.com"
+          className="font-mono text-h2 text-text-secondary hover:text-accent transition-colors duration-200 block mb-8"
+        >
           prakharsing7@gmail.com
         </a>
         <div className="flex gap-6">
-          <a href="https://github.com/prakharsing7" target="_blank" rel="noopener noreferrer" className="font-mono text-small text-text-secondary hover:text-text-primary transition-colors">GitHub</a>
-          <a href="https://linkedin.com/in/prakharsingh10" target="_blank" rel="noopener noreferrer" className="font-mono text-small text-text-secondary hover:text-text-primary transition-colors">LinkedIn</a>
+          <a
+            href="https://github.com/prakharsing7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-small text-text-secondary hover:text-text-primary transition-colors"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://linkedin.com/in/prakharsingh10"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-small text-text-secondary hover:text-text-primary transition-colors"
+          >
+            LinkedIn
+          </a>
         </div>
       </section>
     </>
