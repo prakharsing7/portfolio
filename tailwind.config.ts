@@ -5,7 +5,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['var(--font-geist)', 'sans-serif'],
+        display: ['var(--font-display)', 'var(--font-geist)', 'sans-serif'],
         body: ['var(--font-geist)', 'sans-serif'],
         mono: ['var(--font-geist-mono)', 'monospace'],
       },
