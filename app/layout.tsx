@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import Grain from '@/components/grain'
 import { ConsoleBrand } from '@/components/console-brand'
 import { CommandPalette } from '@/components/command-palette'
 import Nav from '@/components/nav'
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${geist.variable} ${geistMono.variable}`}>
       <body className="bg-bg text-text-primary">
+        <Grain />
         <ConsoleBrand />
         <CommandPalette />
         <Nav />
