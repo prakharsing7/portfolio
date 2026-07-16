@@ -28,8 +28,12 @@ export const metadata: Metadata = {
   description:
     'Building software for the energy transition. AI & Backend Engineer at Electric Miles. 30+ EV charger integrations, OCPP/OCPI specialist, Claude AI integration.',
   keywords: [
-    'EV charging', 'OCPP', 'energy infrastructure',
-    'AI integration', 'full-stack engineer', 'Electric Miles',
+    'EV charging',
+    'OCPP',
+    'energy infrastructure',
+    'AI integration',
+    'full-stack engineer',
+    'Electric Miles',
   ],
   openGraph: {
     type: 'website',
@@ -41,10 +45,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${geist.variable} ${geistMono.variable}`}
-    >
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <body className="bg-bg text-text-primary">
         <ConsoleBrand />
         <CommandPalette />

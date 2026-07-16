@@ -29,7 +29,8 @@ export function CountUp({ end, suffix = '', decimals = 0, className }: CountUpPr
 
   return (
     <span ref={ref} className={className}>
-      {count.toFixed(decimals)}{suffix}
+      {count.toFixed(decimals)}
+      {suffix}
     </span>
   )
 }

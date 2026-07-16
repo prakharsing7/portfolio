@@ -27,7 +27,11 @@ export default function BlogPost({ params }: Props) {
     <article className="px-6 pt-32 pb-20 max-w-content mx-auto">
       <div className="mb-12">
         <p className="font-mono text-small text-text-tertiary mb-4">
-          {new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+          {new Date(post.date).toLocaleDateString('en-GB', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          })}
         </p>
         <h1 className="font-display text-h1 text-text-primary mb-4">{post.title}</h1>
         <p className="text-body text-text-secondary">{post.excerpt}</p>
