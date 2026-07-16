@@ -35,3 +35,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .contentlayer
+
+# project meta — not committed
+.impeccable/
+CLAUDE.md
+.agents/
