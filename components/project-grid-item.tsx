@@ -16,7 +16,10 @@ function ItemContent({ title, description, year, tags }: Omit<ProjectGridItemPro
       <p className="mt-2 text-small text-text-secondary">{description}</p>
       <div className="mt-3 flex flex-wrap gap-2">
         {tags.map((tag) => (
-          <span key={tag} className="font-mono text-small text-text-tertiary border border-border px-1.5 py-0.5">
+          <span
+            key={tag}
+            className="font-mono text-small text-text-tertiary border border-border px-1.5 py-0.5"
+          >
             {tag}
           </span>
         ))}
@@ -28,7 +31,12 @@ function ItemContent({ title, description, year, tags }: Omit<ProjectGridItemPro
 export function ProjectGridItem({ title, description, year, tags, href }: ProjectGridItemProps) {
   if (href) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block hover:opacity-80 transition-opacity"
+      >
         <ItemContent title={title} description={description} year={year} tags={tags} />
       </a>
     )

@@ -21,23 +21,122 @@ export function CommandPalette() {
   const close = useCallback(() => setOpen(false), [])
 
   const commands: Command[] = [
-    { id: 'home',       group: 'Navigate', label: 'Home',          action: () => { router.push('/');              close() } },
-    { id: 'experience', group: 'Navigate', label: 'Experience',    action: () => { router.push('/experience');    close() } },
-    { id: 'work',       group: 'Navigate', label: 'Work',          action: () => { router.push('/work');          close() } },
-    { id: 'blog',       group: 'Navigate', label: 'Blog',          action: () => { router.push('/blog');          close() } },
-    { id: 'about',      group: 'Navigate', label: 'About',         action: () => { router.push('/about');         close() } },
-    { id: 'uses',       group: 'Navigate', label: 'Uses (hidden)', action: () => { router.push('/uses');          close() } },
-    { id: 'github',   group: 'Connect',  label: 'GitHub',        action: () => { window.open('https://github.com/prakharsing7', '_blank'); close() } },
-    { id: 'linkedin', group: 'Connect',  label: 'LinkedIn',      action: () => { window.open('https://linkedin.com/in/prakharsingh10', '_blank'); close() } },
-    { id: 'email',    group: 'Connect',  label: 'Email',         action: () => { window.location.href = 'mailto:prakharsing7@gmail.com'; close() } },
-    { id: 'empact',   group: 'Projects', label: 'emPACT',        action: () => { router.push('/work/empact');   close() } },
-    { id: 'forecast', group: 'Projects', label: 'FORECAST',      action: () => { router.push('/work/forecast'); close() } },
-    { id: 'circles',  group: 'Projects', label: 'Circles',       action: () => { router.push('/work/circles');  close() } },
+    {
+      id: 'home',
+      group: 'Navigate',
+      label: 'Home',
+      action: () => {
+        router.push('/')
+        close()
+      },
+    },
+    {
+      id: 'experience',
+      group: 'Navigate',
+      label: 'Experience',
+      action: () => {
+        router.push('/experience')
+        close()
+      },
+    },
+    {
+      id: 'work',
+      group: 'Navigate',
+      label: 'Work',
+      action: () => {
+        router.push('/work')
+        close()
+      },
+    },
+    {
+      id: 'blog',
+      group: 'Navigate',
+      label: 'Blog',
+      action: () => {
+        router.push('/blog')
+        close()
+      },
+    },
+    {
+      id: 'about',
+      group: 'Navigate',
+      label: 'About',
+      action: () => {
+        router.push('/about')
+        close()
+      },
+    },
+    {
+      id: 'uses',
+      group: 'Navigate',
+      label: 'Uses (hidden)',
+      action: () => {
+        router.push('/uses')
+        close()
+      },
+    },
+    {
+      id: 'github',
+      group: 'Connect',
+      label: 'GitHub',
+      action: () => {
+        window.open('https://github.com/prakharsing7', '_blank')
+        close()
+      },
+    },
+    {
+      id: 'linkedin',
+      group: 'Connect',
+      label: 'LinkedIn',
+      action: () => {
+        window.open('https://linkedin.com/in/prakharsingh10', '_blank')
+        close()
+      },
+    },
+    {
+      id: 'email',
+      group: 'Connect',
+      label: 'Email',
+      action: () => {
+        window.location.href = 'mailto:prakharsing7@gmail.com'
+        close()
+      },
+    },
+    {
+      id: 'empact',
+      group: 'Projects',
+      label: 'emPACT',
+      action: () => {
+        router.push('/work/empact')
+        close()
+      },
+    },
+    {
+      id: 'forecast',
+      group: 'Projects',
+      label: 'FORECAST',
+      action: () => {
+        router.push('/work/forecast')
+        close()
+      },
+    },
+    {
+      id: 'circles',
+      group: 'Projects',
+      label: 'Circles',
+      action: () => {
+        router.push('/work/circles')
+        close()
+      },
+    },
     {
       id: 'copy-email',
       group: 'Actions',
       label: 'Copy email address',
-      action: () => { navigator.clipboard.writeText('prakharsing7@gmail.com'); close() },
+      action: () => {
+        navigator.clipboard.writeText('prakharsing7@gmail.com')
+        close()
+      },
     },
   ]
 
@@ -56,7 +155,9 @@ export function CommandPalette() {
 
   const flat = Object.values(grouped).flat()
 
-  useEffect(() => { setActiveIndex(0) }, [query])
+  useEffect(() => {
+    setActiveIndex(0)
+  }, [query])
 
   useEffect(() => {
     const onKeydown = (e: KeyboardEvent) => {
@@ -132,7 +233,11 @@ export function CommandPalette() {
                 className="flex-1 py-4 bg-transparent font-mono text-small text-text-primary placeholder:text-text-tertiary outline-none caret-accent"
               />
             </div>
-            <div role="listbox" aria-label="Commands" className="max-h-[360px] overflow-y-auto py-2">
+            <div
+              role="listbox"
+              aria-label="Commands"
+              className="max-h-[360px] overflow-y-auto py-2"
+            >
               {Object.entries(grouped).map(([group, cmds]) => (
                 <div key={group}>
                   <div className="px-4 pt-4 pb-1 font-mono text-small text-text-tertiary tracking-widest uppercase">

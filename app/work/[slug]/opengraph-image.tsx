@@ -22,16 +22,50 @@ export default function Image({ params }: { params: { slug: string } }) {
           position: 'relative',
         }}
       >
-        <div style={{ position: 'absolute', top: '64px', left: '64px', width: '4px', height: '48px', background: '#00E5A0' }} />
+        <div
+          style={{
+            position: 'absolute',
+            top: '64px',
+            left: '64px',
+            width: '4px',
+            height: '48px',
+            background: '#00E5A0',
+          }}
+        />
         <div style={{ display: 'flex', flexDirection: 'column', marginTop: '88px' }}>
-          <div style={{ fontSize: '52px', fontWeight: 700, color: '#F0F0F0', lineHeight: 1.1, maxWidth: '900px' }}>
+          <div
+            style={{
+              fontSize: '52px',
+              fontWeight: 700,
+              color: '#F0F0F0',
+              lineHeight: 1.1,
+              maxWidth: '900px',
+            }}
+          >
             {work?.title ?? 'Work'}
           </div>
-          <div style={{ fontSize: '24px', color: '#8B95A1', marginTop: '20px', maxWidth: '820px', lineHeight: 1.4 }}>
+          <div
+            style={{
+              fontSize: '24px',
+              color: '#8B95A1',
+              marginTop: '20px',
+              maxWidth: '820px',
+              lineHeight: 1.4,
+            }}
+          >
             {work?.subtitle}
           </div>
         </div>
-        <div style={{ position: 'absolute', bottom: '64px', left: '64px', fontSize: '16px', color: '#3D4A56', fontFamily: 'monospace' }}>
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '64px',
+            left: '64px',
+            fontSize: '16px',
+            color: '#3D4A56',
+            fontFamily: 'monospace',
+          }}
+        >
           Prakhar Singh
         </div>
       </div>
