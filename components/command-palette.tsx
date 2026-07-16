@@ -31,11 +31,20 @@ export function CommandPalette() {
       },
     },
     {
+      id: 'about',
+      group: 'Navigate',
+      label: 'About',
+      action: () => {
+        router.push('/#about')
+        close()
+      },
+    },
+    {
       id: 'experience',
       group: 'Navigate',
       label: 'Experience',
       action: () => {
-        router.push('/experience')
+        router.push('/#experience')
         close()
       },
     },
@@ -58,11 +67,11 @@ export function CommandPalette() {
       },
     },
     {
-      id: 'about',
+      id: 'photos',
       group: 'Navigate',
-      label: 'About',
+      label: 'Photos',
       action: () => {
-        router.push('/about')
+        router.push('/photos')
         close()
       },
     },
