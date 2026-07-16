@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { ConsoleBrand } from '@/components/console-brand'
 import { CommandPalette } from '@/components/command-palette'
@@ -16,6 +17,14 @@ const geist = localFont({
 const geistMono = localFont({
   src: './fonts/GeistMonoVF.woff',
   variable: '--font-geist-mono',
+  display: 'swap',
+})
+
+// --- Display face. To experiment, swap this ONE block: change the import
+// above and this instance; keep the `variable: '--font-display'`. ---
+const display = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-display',
   display: 'swap',
 })
 
@@ -45,7 +54,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${display.variable} ${geist.variable} ${geistMono.variable}`}>
       <body className="bg-bg text-text-primary">
         <ConsoleBrand />
         <CommandPalette />
