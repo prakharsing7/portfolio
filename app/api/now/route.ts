@@ -3,7 +3,7 @@ export async function GET(request: Request) {
 
   const data = {
     name: 'Prakhar Singh',
-    role: 'AI & Backend Engineer',
+    role: 'Backend Engineer',
     company: 'Electric Miles',
     location: 'London, UK',
     building: 'Software infrastructure for EV charging networks',
