@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0f1419;
-  --surface: #151a22;
-  --border: #242d38;
+  --bg: #171d26;
+  --surface: #202834;
+  --border: #2d3846;
   --text-primary: #f0f0f0;
   --text-secondary: #8b95a1;
   --text-tertiary: #3d4a56;
   --accent: #00e5a0;
   --accent-dim: rgba(0, 229, 160, 0.08);
-  --code-bg: #0a0e13;
+  --code-bg: #10151c;
 }
 
 @layer base {
@@ -60,8 +60,8 @@
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    opacity: 0.05;
-    mix-blend-mode: soft-light;
+    opacity: 0.14;
+    mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-size: 180px 180px;
   }
