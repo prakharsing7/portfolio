@@ -13,9 +13,7 @@ export default function Photos() {
       <p className="font-mono text-small text-text-tertiary tracking-widest uppercase mb-3">
         Photos
       </p>
-      <p className="text-body text-text-secondary max-w-content mb-12">
-        A running set of frames. Camera and settings noted under each.
-      </p>
+      <p className="text-body text-text-secondary max-w-content mb-12">All frames shot on film.</p>
       <PhotoGrid photos={PHOTOS} />
     </div>
   )
