@@ -4,7 +4,7 @@ import { ProjectCard } from '@/components/project-card'
 import { EXPERIENCE } from '@/lib/experience'
 
 const FEATURED_SLUGS = ['gridmind', 'forecast']
-const FEATURED_NUMBERS = ['01', '02', '03']
+const FEATURED_NUMBERS = ['01', '02']
 
 const SNAPSHOT = [
   { label: 'Currently', lines: ['Backend Engineer', 'Electric Miles', 'Remote, London'] },

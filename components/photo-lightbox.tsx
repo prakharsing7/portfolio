@@ -1,5 +1,6 @@
 'use client'
-import { useEffect, useCallback } from 'react'
+import { useEffect, useCallback, useState } from 'react'
+import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
 import { X, ArrowLeft, ArrowRight } from 'lucide-react'
@@ -16,6 +17,10 @@ type PhotoLightboxProps = {
 export function PhotoLightbox({ frames, index, onClose, onNavigate }: PhotoLightboxProps) {
   const open = index !== null
   const frame = open ? frames[index as number] : null
+
+  // Portal target only exists after mount (avoids SSR document access).
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
 
   const goPrev = useCallback(() => {
     if (index === null) return
@@ -51,7 +56,11 @@ export function PhotoLightbox({ frames, index, onClose, onNavigate }: PhotoLight
 
   const meta = frame ? [frame.roll, frame.camera, frame.lens, `ISO ${frame.iso}`].join('  ·  ') : ''
 
-  return (
+  if (!mounted) return null
+
+  // Portal to <body> so the modal's stacking context is a direct body child
+  // and its z-index outranks the fixed nav (z-40), like the command palette.
+  return createPortal(
     <AnimatePresence>
       {open && frame && (
         <motion.div
@@ -129,6 +138,7 @@ export function PhotoLightbox({ frames, index, onClose, onNavigate }: PhotoLight
           </div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   )
 }

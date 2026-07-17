@@ -9,10 +9,11 @@ export function PhotoGallery() {
 
   // base offset of each roll into the flattened ALL_FRAMES list
   const offsets: number[] = []
-  ROLLS.reduce((acc, roll, i) => {
-    offsets[i] = acc
-    return acc + roll.frames.length
-  }, 0)
+  let acc = 0
+  for (const roll of ROLLS) {
+    offsets.push(acc)
+    acc += roll.frames.length
+  }
 
   return (
     <>
