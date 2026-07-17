@@ -6,6 +6,26 @@ import { EXPERIENCE } from '@/lib/experience'
 const FEATURED_SLUGS = ['empact', 'forecast', 'circles']
 const FEATURED_NUMBERS = ['01', '02', '03']
 
+const SNAPSHOT = [
+  { label: 'Currently', lines: ['AI & Backend Engineer', 'Electric Miles, London'] },
+  {
+    label: 'Building',
+    lines: ['Energy infrastructure software', 'Internal AI tooling with Claude'],
+  },
+  {
+    label: 'Focused on',
+    lines: ['OCPP · OCPI · PHP/Symfony', 'Next.js · TypeScript · AI integrations'],
+  },
+  {
+    label: 'Open to',
+    lines: [
+      'Senior full-time or contract',
+      'Energy tech · Climate · EV systems',
+      'Remote or London',
+    ],
+  },
+]
+
 export default function Home() {
   const featured = FEATURED_SLUGS.map((slug) => allWorks.find((w) => w.slug === slug)).filter(
     Boolean,
@@ -18,7 +38,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex flex-col justify-center px-6 pt-20 pb-20 max-w-layout mx-auto min-h-[90vh]">
+      <section className="relative flex flex-col justify-center px-6 pt-32 pb-24 max-w-layout mx-auto min-h-[92vh]">
         <div className="max-w-content">
           <p className="font-mono text-small text-text-secondary mb-1">
             Platform Onboarding &amp; AI Engineer
@@ -34,33 +54,87 @@ export default function Home() {
             infrastructure at the intersection of energy and software.
           </p>
         </div>
-        <div className="absolute bottom-12 left-6 flex flex-col items-center gap-2">
-          <div className="w-px h-10 bg-border" />
-          <span className="font-mono text-small text-text-tertiary">scroll</span>
-        </div>
-        <div className="absolute bottom-12 right-6 flex gap-5">
-          <a
-            href="https://github.com/prakharsing7"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-small text-text-tertiary hover:text-text-primary transition-colors"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://linkedin.com/in/prakharsingh10"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-small text-text-tertiary hover:text-text-primary transition-colors"
-          >
-            LinkedIn
-          </a>
+      </section>
+
+      {/* About (asymmetric: prose + sticky snapshot) */}
+      <section id="about" className="px-6 py-24 max-w-layout mx-auto">
+        <div className="flex flex-col lg:flex-row gap-16">
+          <div className="flex-1 max-w-content space-y-14">
+            <div className="space-y-5 text-body text-text-secondary">
+              <p>
+                I started in machine learning: not because it was fashionable, but because I was
+                obsessed with what you could infer from data that had no obvious structure. At SRM
+                Institute in Chennai, I built a cyclone intensity prediction system using infrared
+                INSAT-3D satellite imagery. The hypothesis: convolutional nets applied to raw
+                geoTIFF frames could yield faster, more granular predictions. It worked, and
+                reinforced a way of thinking I still carry: physical systems as data problems.
+              </p>
+              <p>
+                Around the same time: real-time object detection on the COCO dataset, BERTopic topic
+                modelling on news corpora, YOLO-based social distance monitoring. Research rigour.
+                Data-to-decision pipelines. Systems thinking.
+              </p>
+            </div>
+            <div className="space-y-5 text-body text-text-secondary">
+              <p>
+                Then products. An iOS trip planning app (Circles), built in SwiftUI with MVVM
+                architecture and a MongoDB backend. Ten-plus screens, collaborative editing,
+                real-time sync. An iOS internship at Infosys. A hospital management system (zen-u).
+                An open-source 3D slicer fork (slic3r).
+              </p>
+              <p>
+                The pattern: full-stack capability, product ownership, cross-platform range. The
+                discipline of shipping something complete. The distance between &ldquo;it
+                works&rdquo; and &ldquo;it feels right&rdquo;, and learning to close it
+                deliberately.
+              </p>
+            </div>
+            <div className="space-y-5 text-body text-text-secondary">
+              <p>
+                Electric Miles. I joined as a Platform Onboarding Engineer and spent the first phase
+                integrating EV chargers into a live OCPP network: 30+ chargers across 15+
+                manufacturers. KEBA, Rolec, NexBlue, EnSmart, EN+, Vestel, Heliox, and others. Every
+                manufacturer treats the OCPP standard differently. Custom status codes, non-standard
+                field values, undocumented edge cases. You learn fast that a protocol spec and a
+                real charger are two different things.
+              </p>
+              <p>
+                Then: full end-to-end test ownership of emPACT, Electric Miles&rsquo; flagship B2B
+                platform for CPOs and fleet operators. State machine coverage for every charger
+                type. Payment flow edge cases. Load balancing scenarios.
+              </p>
+              <p>
+                Now: AI &amp; Backend Engineer. I led the internal rollout of Claude
+                (Anthropic&rsquo;s API) across Electric Miles&rsquo; operations, automating
+                high-friction workflows in the PHP/Symfony backend. The first production AI
+                integration at an EV infrastructure company. That&rsquo;s the work I find most
+                interesting: the intersection where energy infrastructure meets AI systems.
+              </p>
+            </div>
+          </div>
+
+          <aside className="lg:w-64 shrink-0">
+            <div className="lg:sticky lg:top-32 space-y-8 font-mono text-small">
+              {SNAPSHOT.map(({ label, lines }) => (
+                <div key={label}>
+                  <p className="text-text-tertiary mb-3 tracking-widest uppercase">{label}</p>
+                  <div className="border-t border-border pt-3 space-y-1">
+                    {lines.map((line) => (
+                      <p key={line} className="text-text-secondary">
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </aside>
         </div>
       </section>
 
       {/* Experience */}
-      <section className="px-6 py-20 max-w-layout mx-auto border-t-2 border-accent">
-        <p className="font-mono text-small text-accent tracking-widest uppercase mb-10 font-semibold">
+      <section id="experience" className="px-6 py-24 max-w-layout mx-auto">
+        <p className="font-mono text-small text-text-tertiary tracking-widest uppercase mb-10">
           Experience
         </p>
         {EXPERIENCE.map((role) => (
@@ -96,9 +170,9 @@ export default function Home() {
         ))}
       </section>
 
-      {/* Featured Work */}
-      <section className="px-6 py-20 max-w-layout mx-auto border-t-2 border-accent">
-        <p className="font-mono text-small text-accent tracking-widest uppercase mb-10 font-semibold">
+      {/* Selected Work */}
+      <section id="work" className="px-6 py-24 max-w-layout mx-auto">
+        <p className="font-mono text-small text-text-tertiary tracking-widest uppercase mb-10">
           Selected Work
         </p>
         {featured.map((work, i) =>
@@ -114,33 +188,18 @@ export default function Home() {
             />
           ) : null,
         )}
-      </section>
-
-      {/* About Strip */}
-      <section className="px-6 py-20 max-w-layout mx-auto border-t-2 border-accent">
-        <p className="text-body text-text-secondary max-w-prose mb-6">
-          I started in ML research: cyclone intensity prediction from INSAT-3D satellite imagery,
-          real-time object detection, topic modelling on news corpora. Then products: an iOS trip
-          planning app in SwiftUI, a hospital management system, an open-source 3D slicer fork.
-        </p>
-        <p className="text-body text-text-secondary max-w-prose mb-10">
-          Today I work at Electric Miles, where I integrated{' '}
-          <span className="text-text-primary">30+ EV chargers across 15+ manufacturers</span> into a
-          live OCPP network, then led the internal rollout of Claude across operations. The first
-          production AI integration at an EV infrastructure company.
-        </p>
         <Link
-          href="/about"
-          className="font-mono text-small text-text-secondary hover:text-accent transition-colors duration-200"
+          href="/work"
+          className="font-mono text-small text-text-secondary hover:text-accent transition-colors duration-200 mt-8 block"
         >
-          Full story →
+          All work →
         </Link>
       </section>
 
       {/* Latest Writing */}
       {latestPosts.length > 0 && (
-        <section className="px-6 py-20 max-w-layout mx-auto border-t-2 border-accent">
-          <p className="font-mono text-small text-accent tracking-widest uppercase mb-8 font-semibold">
+        <section id="writing" className="px-6 py-24 max-w-layout mx-auto">
+          <p className="font-mono text-small text-text-tertiary tracking-widest uppercase mb-8">
             Latest Writing
           </p>
           <div className="space-y-6">
@@ -171,7 +230,7 @@ export default function Home() {
       )}
 
       {/* Contact */}
-      <section className="px-6 py-32 max-w-layout mx-auto border-t-2 border-accent">
+      <section id="contact" className="px-6 pt-24 pb-32 max-w-layout mx-auto">
         <h2 className="font-display text-h1 text-text-primary mb-6">Let&rsquo;s talk.</h2>
         <a
           href="mailto:prakharsing7@gmail.com"
