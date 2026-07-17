@@ -32,11 +32,11 @@ const display = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://prakharsingh.dev'),
   title: {
-    default: 'Prakhar Singh — AI & Platform Engineer',
+    default: 'Prakhar Singh — Backend Engineer',
     template: '%s · Prakhar Singh',
   },
   description:
-    'Building software for the energy transition. AI & Backend Engineer at Electric Miles. 30+ EV charger integrations, OCPP/OCPI specialist, Claude AI integration.',
+    'Building software for the energy transition. Backend Engineer at Electric Miles. 30+ EV charger integrations, OCPP/OCPI specialist, Claude AI integration.',
   keywords: [
     'EV charging',
     'OCPP',

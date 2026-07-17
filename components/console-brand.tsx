@@ -10,7 +10,7 @@ export function ConsoleBrand() {
     const dim = 'color:#707070;font-family:monospace;font-size:11px'
     const link = 'color:#00E5A0;font-family:monospace;font-size:11px'
 
-    console.log('%c PRAKHAR SINGH %c AI & Platform Engineer', badge, name)
+    console.log('%c PRAKHAR SINGH %c Backend Engineer', badge, name)
     console.log('%c Building software for the energy transition.', dim)
     console.log(' ')
     console.log('%c prakharsing7@gmail.com', link)
