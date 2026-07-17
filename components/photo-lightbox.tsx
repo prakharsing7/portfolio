@@ -49,17 +49,8 @@ export function PhotoLightbox({ photos, index, onClose, onNavigate }: PhotoLight
     return () => window.removeEventListener('keydown', onKey)
   }, [open, onClose, goPrev, goNext])
 
-  const exifLine = photo?.exif
-    ? [
-        photo.exif.camera,
-        photo.exif.lens,
-        photo.exif.focalLength,
-        photo.exif.aperture,
-        photo.exif.shutter,
-        photo.exif.iso ? `ISO ${photo.exif.iso}` : undefined,
-      ]
-        .filter(Boolean)
-        .join('  ·  ')
+  const metaLine = photo
+    ? [photo.roll, photo.camera, photo.lens, `ISO ${photo.iso}`].join('  ·  ')
     : ''
 
   return (
@@ -91,32 +82,21 @@ export function PhotoLightbox({ photos, index, onClose, onNavigate }: PhotoLight
 
           {/* Image */}
           <div className="flex-1 min-h-0 flex items-center justify-center px-6">
-            {photo.src ? (
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                width={photo.width}
-                height={photo.height}
-                sizes="90vw"
-                className="max-h-full max-w-full w-auto h-auto object-contain"
-                priority
-              />
-            ) : (
-              <div
-                className="bg-surface w-full max-w-3xl flex items-center justify-center"
-                style={{ aspectRatio: `${photo.width} / ${photo.height}`, maxHeight: '100%' }}
-              >
-                <span className="font-mono text-small text-text-tertiary">
-                  {photo.width}×{photo.height}
-                </span>
-              </div>
-            )}
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              width={photo.width}
+              height={photo.height}
+              sizes="90vw"
+              className="max-h-full max-w-full w-auto h-auto object-contain"
+              priority
+            />
           </div>
 
           {/* Caption + EXIF */}
           <div className="flex items-center justify-between gap-4 px-6 py-5 shrink-0">
             <div className="min-w-0">
-              <p className="font-mono text-small text-text-secondary truncate">{exifLine}</p>
+              <p className="font-mono text-small text-text-secondary truncate">{metaLine}</p>
               {(photo.location || photo.date) && (
                 <p className="font-mono text-small text-text-tertiary truncate">
                   {[photo.location, photo.date].filter(Boolean).join('  ·  ')}
