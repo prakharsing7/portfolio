@@ -1,0 +1,33 @@
+---
+title: GridMind
+subtitle: Optimal EV charging schedules via convex optimization, emitted as OCPP SetChargingProfile messages
+year: '2026'
+role: Creator
+stack: [Python, CVXPY, Pydantic, Click, OCPP]
+company: Open source
+featured: true
+---
+
+GridMind is an open-source tool that computes cost-optimal EV charging schedules with convex optimization and emits them as OCPP-native SetChargingProfile messages. It sits in the gap between OCPP libraries, which parse the protocol but do not optimize, and energy optimization tools, which optimize but know nothing about OCPP.
+
+## The problem
+
+OCPP defines smart charging, but the spec stops at the message format. Deciding when to charge, given time-of-use prices, a shared feeder limit, and each vehicle's deadline, is an optimization problem the protocol leaves to you. Most deployments fall back to charging the moment a car plugs in, which is the worst case for both cost and grid load.
+
+## Approach
+
+GridMind models charging as a linear program in CVXPY. The objective minimises energy cost against a price signal; the constraints encode per-connector power limits, battery capacity and target state of charge, session arrival and departure windows, and a shared feeder ceiling across a fleet. The solver returns a per-interval power schedule, which is then serialised into OCPP 1.6 or 2.0.1 SetChargingProfile payloads ready to send to a charge point.
+
+## What it does
+
+- Single-EV optimization against time-of-use or flat pricing
+- Fleet scheduling under a shared feeder capacity constraint
+- Demand response: shifting or curtailing load in response to grid signals
+- Strategy comparison of optimized versus uncontrolled charging, with cost and peak-load metrics
+- Simulation over synthetic sessions, plus a CLI for configuration and validation
+
+## Why it matters
+
+It connects the two halves of my work: the OCPP integration experience from onboarding thirty-plus chargers, and the optimization mindset from ML research. This is the layer that turns a protocol that can do smart charging into a system that actually schedules it well.
+
+[View the source on GitHub](https://github.com/prakharsing7/gridmind).

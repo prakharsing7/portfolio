@@ -3,15 +3,12 @@ import Link from 'next/link'
 import { ProjectCard } from '@/components/project-card'
 import { EXPERIENCE } from '@/lib/experience'
 
-const FEATURED_SLUGS = ['empact', 'forecast', 'circles']
-const FEATURED_NUMBERS = ['01', '02', '03']
+const FEATURED_SLUGS = ['gridmind', 'forecast']
+const FEATURED_NUMBERS = ['01', '02']
 
 const SNAPSHOT = [
-  { label: 'Currently', lines: ['AI & Backend Engineer', 'Electric Miles, London'] },
-  {
-    label: 'Building',
-    lines: ['Energy infrastructure software', 'Internal AI tooling with Claude'],
-  },
+  { label: 'Currently', lines: ['Backend Engineer', 'Electric Miles', 'Remote, London'] },
+  { label: 'Building', lines: ['Energy infrastructure software'] },
   {
     label: 'Focused on',
     lines: ['OCPP · OCPI · PHP/Symfony', 'Next.js · TypeScript · AI integrations'],
@@ -40,10 +37,10 @@ export default function Home() {
       {/* Hero */}
       <section className="relative flex flex-col justify-center px-6 pt-32 pb-24 max-w-layout mx-auto min-h-[92vh]">
         <div className="max-w-content">
-          <p className="font-mono text-small text-text-secondary mb-1">
-            Platform Onboarding &amp; AI Engineer
+          <p className="font-mono text-small text-text-secondary mb-1">Backend Engineer</p>
+          <p className="font-mono text-small text-text-tertiary mb-10">
+            Electric Miles · Remote, London
           </p>
-          <p className="font-mono text-small text-text-tertiary mb-10">Electric Miles · London</p>
           <h1 className="font-display text-display text-text-primary">PRAKHAR SINGH</h1>
           <p className="font-display text-h1 text-text-primary mt-8 max-w-prose">
             I build the software layer between clean energy hardware and the people who depend on
@@ -104,11 +101,11 @@ export default function Home() {
                 type. Payment flow edge cases. Load balancing scenarios.
               </p>
               <p>
-                Now: AI &amp; Backend Engineer. I led the internal rollout of Claude
-                (Anthropic&rsquo;s API) across Electric Miles&rsquo; operations, automating
-                high-friction workflows in the PHP/Symfony backend. The first production AI
-                integration at an EV infrastructure company. That&rsquo;s the work I find most
-                interesting: the intersection where energy infrastructure meets AI systems.
+                Now: Backend Engineer. I led the internal rollout of Claude (Anthropic&rsquo;s API)
+                across Electric Miles&rsquo; operations, automating high-friction workflows in the
+                PHP/Symfony backend. The first production AI integration at an EV infrastructure
+                company. That&rsquo;s the work I find most interesting: the intersection where
+                energy infrastructure meets AI systems.
               </p>
             </div>
           </div>
