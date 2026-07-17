@@ -17,7 +17,7 @@ export type Photo = {
 const CAMERA = 'Nikon FM10'
 const LENS = 'Nikkor 35-70mm'
 
-export const PHOTOS: Photo[] = [
+const RAW: Photo[] = [
   // Ilford XP2 — Mahabaleshwar, India — shot at 400 — Sept 2025
   {
     id: 'ilford-xp2-01',
@@ -483,3 +483,50 @@ export const PHOTOS: Photo[] = [
     date: 'April 2026',
   },
 ]
+
+// Curated display order — strongest / most varied frames first, weaker
+// (hazy, blurry, repetitive) frames toward the end. Edit freely to re-rank.
+const ORDER = [
+  'ilford-xp2-01',
+  'cpb400c-manali-02',
+  'lazy250-vietnam-03',
+  'lazy250-vietnam-01',
+  'lazy250-vietnam-02',
+  'cpb400c-manali-06',
+  'lazy500-manali-06',
+  'lazy250-dharamshala-02',
+  'lazy250-vietnam-06',
+  'lazy250-dharamshala-04',
+  'lazy500-manali-11',
+  'lazy250-dharamshala-01',
+  'lazy500-manali-03',
+  'lazy250-vietnam-04',
+  'lazy250-vietnam-05',
+  'lazy250-dharamshala-03',
+  'lazy500-manali-01',
+  'cpb400c-manali-04',
+  'lazy500-manali-02',
+  'cpb400c-manali-05',
+  'ilford-xp2-02',
+  'lazy250-dharamshala-06',
+  'lazy250-dharamshala-07',
+  'cpb400c-manali-03',
+  'lazy500-manali-10',
+  'lazy500-manali-08',
+  'lazy500-manali-09',
+  'lazy500-manali-05',
+  'lazy500-manali-07',
+  'lazy500-manali-12',
+  'lazy250-dharamshala-05',
+  'cpb400c-manali-01',
+  'cpb400c-manali-07',
+  'cpb400c-manali-08',
+  'lazy500-manali-04',
+]
+
+const rank = (id: string) => {
+  const i = ORDER.indexOf(id)
+  return i === -1 ? ORDER.length : i
+}
+
+export const PHOTOS: Photo[] = [...RAW].sort((a, b) => rank(a.id) - rank(b.id))
