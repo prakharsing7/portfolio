@@ -65,6 +65,7 @@ export function PhotoLightbox({ photos, index, onClose, onNavigate }: PhotoLight
           role="dialog"
           aria-modal="true"
           aria-label={photo.alt}
+          onClick={onClose}
         >
           {/* Top bar */}
           <div className="flex items-center justify-between px-6 py-5 shrink-0">
@@ -90,6 +91,7 @@ export function PhotoLightbox({ photos, index, onClose, onNavigate }: PhotoLight
               sizes="90vw"
               className="max-h-full max-w-full w-auto h-auto object-contain"
               priority
+              onClick={(e) => e.stopPropagation()}
             />
           </div>
 
@@ -105,7 +107,10 @@ export function PhotoLightbox({ photos, index, onClose, onNavigate }: PhotoLight
             </div>
             <div className="flex items-center gap-2 shrink-0">
               <button
-                onClick={goPrev}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  goPrev()
+                }}
                 disabled={index === 0}
                 aria-label="Previous"
                 className="text-text-secondary hover:text-text-primary disabled:opacity-30 transition-colors p-2"
@@ -113,7 +118,10 @@ export function PhotoLightbox({ photos, index, onClose, onNavigate }: PhotoLight
                 <ArrowLeft size={18} />
               </button>
               <button
-                onClick={goNext}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  goNext()
+                }}
                 disabled={index === photos.length - 1}
                 aria-label="Next"
                 className="text-text-secondary hover:text-text-primary disabled:opacity-30 transition-colors p-2"
