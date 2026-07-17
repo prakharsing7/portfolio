@@ -22,13 +22,18 @@ export default function Nav() {
   return (
     <nav aria-label="Main" className="fixed top-0 left-0 right-0 z-40 w-full bg-bg">
       <div className="max-w-layout mx-auto px-6 py-5 flex items-center justify-between">
-        {/* Home mark (SVG mark swapped in by the favicon task) */}
-        <Link
-          href="/"
-          aria-label="Home"
-          className="font-mono text-small text-text-primary hover:text-accent transition-colors py-3 -my-3"
-        >
-          PS
+        {/* Home mark: gradient orb, matches the favicon */}
+        <Link href="/" aria-label="Home" className="py-3 -my-3 transition-opacity hover:opacity-80">
+          <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+            <defs>
+              <radialGradient id="navOrb" cx="34%" cy="28%" r="82%">
+                <stop offset="0%" stopColor="#7CF7D6" />
+                <stop offset="42%" stopColor="#00E5A0" />
+                <stop offset="100%" stopColor="#0A3A32" />
+              </radialGradient>
+            </defs>
+            <circle cx="16" cy="16" r="15.5" fill="url(#navOrb)" />
+          </svg>
         </Link>
 
         <div className="flex items-center gap-8">
