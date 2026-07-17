@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ProjectCard } from '@/components/project-card'
 import { EXPERIENCE } from '@/lib/experience'
 
-const FEATURED_SLUGS = ['empact', 'forecast', 'circles']
+const FEATURED_SLUGS = ['gridmind', 'forecast']
 const FEATURED_NUMBERS = ['01', '02', '03']
 
 const SNAPSHOT = [
