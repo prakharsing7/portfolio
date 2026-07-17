@@ -18,18 +18,24 @@ function GithubMark() {
 
 export default function Nav() {
   const pathname = usePathname()
+  const onPhotos = pathname.startsWith('/photos')
 
   return (
-    <nav aria-label="Main" className="fixed top-0 left-0 right-0 z-40 w-full bg-bg">
+    <nav
+      aria-label="Main"
+      className={`fixed left-0 right-0 top-0 z-40 w-full transition-colors duration-300 ${
+        onPhotos ? 'bg-[#14100c]' : 'bg-bg'
+      }`}
+    >
       <div className="max-w-layout mx-auto px-6 py-5 flex items-center justify-between">
         {/* Home mark: gradient orb, matches the favicon */}
         <Link href="/" aria-label="Home" className="py-3 -my-3 transition-opacity hover:opacity-80">
           <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
             <defs>
               <radialGradient id="navOrb" cx="34%" cy="28%" r="82%">
-                <stop offset="0%" stopColor="#7CF7D6" />
-                <stop offset="42%" stopColor="#00E5A0" />
-                <stop offset="100%" stopColor="#0A3A32" />
+                <stop offset="0%" stopColor={onPhotos ? '#F0C6A0' : '#7CF7D6'} />
+                <stop offset="42%" stopColor={onPhotos ? '#C47A4F' : '#00E5A0'} />
+                <stop offset="100%" stopColor={onPhotos ? '#3A1F12' : '#0A3A32'} />
               </radialGradient>
             </defs>
             <circle cx="16" cy="16" r="15.5" fill="url(#navOrb)" />
@@ -50,9 +56,9 @@ export default function Nav() {
             >
               {link.label}
               <span
-                className={`absolute -bottom-0.5 left-0 h-px bg-accent transition-[width] duration-200 ${
-                  pathname.startsWith(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
-                }`}
+                className={`absolute -bottom-0.5 left-0 h-px transition-[width] duration-200 ${
+                  onPhotos ? 'bg-[color:var(--film-amber)]' : 'bg-accent'
+                } ${pathname.startsWith(link.href) ? 'w-full' : 'w-0 group-hover:w-full'}`}
               />
             </Link>
           ))}
