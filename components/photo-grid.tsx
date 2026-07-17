@@ -25,29 +25,18 @@ export function PhotoGrid({ photos }: { photos: Photo[] }) {
               className="relative w-full bg-surface overflow-hidden"
               style={{ aspectRatio: `${photo.width} / ${photo.height}` }}
             >
-              {photo.src ? (
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  width={photo.width}
-                  height={photo.height}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="w-full h-auto object-cover transition-opacity duration-300 group-hover:opacity-90"
-                />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-mono text-small text-text-tertiary">
-                    {photo.width}×{photo.height}
-                  </span>
-                </div>
-              )}
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                width={photo.width}
+                height={photo.height}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="w-full h-auto object-cover transition-opacity duration-300 group-hover:opacity-90"
+              />
             </div>
             <div className="mt-2 flex flex-wrap gap-x-3 gap-y-0.5 font-mono text-small text-text-tertiary">
-              {photo.exif?.camera && <span>{photo.exif.camera}</span>}
-              {photo.exif?.focalLength && <span>{photo.exif.focalLength}</span>}
-              {photo.exif?.aperture && <span>{photo.exif.aperture}</span>}
-              {photo.exif?.shutter && <span>{photo.exif.shutter}</span>}
-              {photo.exif?.iso && <span>ISO {photo.exif.iso}</span>}
+              <span>{photo.roll}</span>
+              <span>{photo.location}</span>
             </div>
           </button>
         ))}
