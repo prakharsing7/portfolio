@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: '30+ EV charger integrations, AI engineering, iOS development, and ML research.',
 }
 
-const FEATURED_SLUGS = ['empact', 'forecast', 'circles']
+const FEATURED_SLUGS = ['gridmind', 'forecast', 'circles']
 const FEATURED_NUMBERS = ['01', '02', '03']
 
 const SECONDARY_PROJECTS = [

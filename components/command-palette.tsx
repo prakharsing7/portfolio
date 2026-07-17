@@ -112,6 +112,15 @@ export function CommandPalette() {
       },
     },
     {
+      id: 'gridmind',
+      group: 'Projects',
+      label: 'GridMind',
+      action: () => {
+        router.push('/work/gridmind')
+        close()
+      },
+    },
+    {
       id: 'empact',
       group: 'Projects',
       label: 'emPACT',
