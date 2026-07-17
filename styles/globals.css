@@ -12,6 +12,8 @@
   --accent: #00e5a0;
   --accent-dim: rgba(0, 229, 160, 0.08);
   --code-bg: #10151c;
+  /* film-metadata accent — used ONLY on the photos page (frame numbers, active roll) */
+  --film-amber: #c47a4f;
 }
 
 @layer base {
@@ -69,5 +71,38 @@
   body > * {
     position: relative;
     z-index: 2;
+  }
+
+  /* --- Photos page: warm "darkroom" wash + stronger page-scoped grain --- */
+  .photos-warm-wash {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(115% 75% at 50% -5%, rgba(196, 122, 79, 0.13), transparent 55%),
+      radial-gradient(100% 60% at 50% 108%, rgba(150, 80, 45, 0.09), transparent 55%), #14100c;
+  }
+  .photos-grain {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    /* CSS opacity maxes at 1; grain strength beyond that comes from the
+       alpha-contrast curve baked into the noise below. */
+    opacity: 1;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='1.7' intercept='-0.18'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+  }
+  /* 35mm film-perforation divider under roll headers: warm film-base band
+     with dark, well-rounded perforation holes punched along it */
+  .sprocket {
+    height: 22px;
+    /* film-base band; hole is a stadium (rx = half width => straight sides, full
+       semicircle caps, no rounded-rect corners). Offset by half a tile so the
+       strip's edges cut through a perforation, like a snipped length of film. */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='22'%3E%3Crect width='24' height='22' fill='%23241a12'/%3E%3Crect x='7' y='3' width='10' height='16' rx='5' fill='%230d0a07'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: -12px center;
+    background-size: 24px 22px;
   }
 }
