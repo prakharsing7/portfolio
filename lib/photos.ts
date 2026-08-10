@@ -47,7 +47,7 @@ export const ROLLS: Roll[] = [
     location: 'Dharamshala, India',
     date: 'Nov 2025',
     frames: [
-      f('lazy250-dharamshala-04', 1599, 2400, 'Rainbow-painted steps, Dharamshala'),
+      f('lazy250-dharamshala-04', 2079, 2400, 'Rainbow-painted steps, Dharamshala'),
       f('lazy250-dharamshala-01', 2400, 1599, 'A green door in a brick wall, Dharamshala'),
       f('lazy250-dharamshala-09', 2400, 1599, 'A figure walking a forest path, Dharamshala'),
       f('lazy250-dharamshala-06', 2400, 1599, 'Friends on the hillside, Dharamshala'),
