@@ -95,6 +95,11 @@
   }
   /* 35mm film-perforation divider under roll headers: warm film-base band
      with dark, well-rounded perforation holes punched along it */
+  .photos-page ::selection {
+    background-color: var(--film-amber);
+    color: #14100c;
+  }
+
   .sprocket {
     height: 22px;
     /* film-base band; hole is a stadium (rx = half width => straight sides, full
