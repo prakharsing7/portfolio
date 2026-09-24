@@ -43,12 +43,11 @@ export default function Home() {
           </p>
           <h1 className="font-display text-display text-text-primary">PRAKHAR SINGH</h1>
           <p className="font-display text-h1 text-text-primary mt-8 max-w-prose">
-            I build the software layer between clean energy hardware and the people who depend on
-            it.
+            I build the software layer between EV infrastructure and the people who depend on it
           </p>
           <p className="mt-6 text-body text-text-secondary max-w-prose">
-            30+ EV chargers integrated. OCPP &amp; OCPI protocol specialist. Currently leading AI
-            infrastructure at the intersection of energy and software.
+            30+ EV chargers integrated. OCPP &amp; OCPI protocol specialist. Currently, building the
+            backend at the intersection of energy and software.
           </p>
         </div>
       </section>
@@ -59,8 +58,8 @@ export default function Home() {
           <div className="flex-1 max-w-content space-y-14">
             <div className="space-y-5 text-body text-text-secondary">
               <p>
-                I started in machine learning: not because it was fashionable, but because I was
-                obsessed with what you could infer from data that had no obvious structure. At SRM
+                I started with machine learning because kind of had a proclivity with what you could
+                infer from data that had no obvious structure, felt like solving a puzzle. At SRM
                 Institute in Chennai, I built a cyclone intensity prediction system using infrared
                 INSAT-3D satellite imagery. The hypothesis: convolutional nets applied to raw
                 geoTIFF frames could yield faster, more granular predictions. It worked, and
@@ -82,8 +81,8 @@ export default function Home() {
               <p>
                 The pattern: full-stack capability, product ownership, cross-platform range. The
                 discipline of shipping something complete. The distance between &ldquo;it
-                works&rdquo; and &ldquo;it feels right&rdquo;, and learning to close it
-                deliberately.
+                works&rdquo; and &ldquo;it feels right&rdquo;, learning to close it deliberately and
+                design language, which Infosys and Apple helped a lot with.
               </p>
             </div>
             <div className="space-y-5 text-body text-text-secondary">
@@ -93,7 +92,10 @@ export default function Home() {
                 manufacturers. KEBA, Rolec, NexBlue, EnSmart, EN+, Vestel, Heliox, and others. Every
                 manufacturer treats the OCPP standard differently. Custom status codes, non-standard
                 field values, undocumented edge cases. You learn fast that a protocol spec and a
-                real charger are two different things.
+                real charger are two different things. Quite fast paced, which I like, just a whole
+                lot of new things to learn and explore and grow from which did allow me to build
+                perspective slightly out of the STEM brain of mine. Working across most of the
+                business - support, marketing, sales, finance and product certainly helped.
               </p>
               <p>
                 Then: full end-to-end test ownership of emPACT, Electric Miles&rsquo; flagship B2B
@@ -101,11 +103,11 @@ export default function Home() {
                 type. Payment flow edge cases. Load balancing scenarios.
               </p>
               <p>
-                Now: Backend Engineer. I led the internal rollout of Claude (Anthropic&rsquo;s API)
-                across Electric Miles&rsquo; operations, automating high-friction workflows in the
-                PHP/Symfony backend. The first production AI integration at an EV infrastructure
-                company. That&rsquo;s the work I find most interesting: the intersection where
-                energy infrastructure meets AI systems.
+                Now: Backend Engineer. I shipped the first production AI integration at Electric
+                Miles and alongside that, I&rsquo;ve been building the event-driven systems and
+                protocol integrations that keep real charging infrastructure online. Async
+                pipelines, hardware talking to software, code that either works or someone&rsquo;s
+                car doesn&rsquo;t charge and helping CPOs have the perfect outlook of their sites.
               </p>
             </div>
           </div>
